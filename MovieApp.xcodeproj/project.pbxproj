@@ -19,7 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9402FDEF270774200090707B /* CustomTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9402FDEF270774200090707B /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9402FDF2270774200090707B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9402FDF4270774200090707B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9402FDF6270774200090707B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 		9402FDE6270774200090707B = {
 			isa = PBXGroup;
 			children = (
-				9402FDF1270774200090707B /* CustomTableView */,
+				9402FDF1270774200090707B /* MovieApp */,
 				9402FDF0270774200090707B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,42 +54,58 @@
 		9402FDF0270774200090707B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9402FDEF270774200090707B /* CustomTableView.app */,
+				9402FDEF270774200090707B /* MovieApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9402FDF1270774200090707B /* CustomTableView */ = {
+		9402FDF1270774200090707B /* MovieApp */ = {
 			isa = PBXGroup;
 			children = (
-				9439F3A32726F48D00E5656D /* Models */,
+				94AE87DD273048E3001D288C /* View */,
+				94AE87DC273048D4001D288C /* Controller */,
+				9439F3A32726F48D00E5656D /* Model */,
 				9402FDF2270774200090707B /* AppDelegate.swift */,
 				9402FDF4270774200090707B /* SceneDelegate.swift */,
-				9402FDF6270774200090707B /* ViewController.swift */,
-				9402FDF8270774200090707B /* Main.storyboard */,
 				9402FDFB270774210090707B /* Assets.xcassets */,
-				9402FDFD270774210090707B /* LaunchScreen.storyboard */,
 				9402FE00270774210090707B /* Info.plist */,
-				9402FE08270777A70090707B /* CustomTableViewCell.swift */,
 			);
-			path = CustomTableView;
+			path = MovieApp;
 			sourceTree = "<group>";
 		};
-		9439F3A32726F48D00E5656D /* Models */ = {
+		9439F3A32726F48D00E5656D /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				9439F3A42726F49E00E5656D /* DataManager.swift */,
 				9439F3A82726F6B200E5656D /* MovieData.swift */,
 			);
-			path = Models;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		94AE87DC273048D4001D288C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9402FDF6270774200090707B /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		94AE87DD273048E3001D288C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9402FE08270777A70090707B /* CustomTableViewCell.swift */,
+				9402FDFD270774210090707B /* LaunchScreen.storyboard */,
+				9402FDF8270774200090707B /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9402FDEE270774200090707B /* CustomTableView */ = {
+		9402FDEE270774200090707B /* MovieApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9402FE03270774210090707B /* Build configuration list for PBXNativeTarget "CustomTableView" */;
+			buildConfigurationList = 9402FE03270774210090707B /* Build configuration list for PBXNativeTarget "MovieApp" */;
 			buildPhases = (
 				9402FDEB270774200090707B /* Sources */,
 				9402FDEC270774200090707B /* Frameworks */,
@@ -99,9 +115,9 @@
 			);
 			dependencies = (
 			);
-			name = CustomTableView;
+			name = MovieApp;
 			productName = CustomTableView;
-			productReference = 9402FDEF270774200090707B /* CustomTableView.app */;
+			productReference = 9402FDEF270774200090707B /* MovieApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -118,7 +134,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9402FDEA270774200090707B /* Build configuration list for PBXProject "CustomTableView" */;
+			buildConfigurationList = 9402FDEA270774200090707B /* Build configuration list for PBXProject "MovieApp" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -131,7 +147,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9402FDEE270774200090707B /* CustomTableView */,
+				9402FDEE270774200090707B /* MovieApp */,
 			);
 		};
 /* End PBXProject section */
@@ -313,7 +329,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = FoxTail.CustomTableView;
+				PRODUCT_BUNDLE_IDENTIFIER = FoxTail.MovieApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -332,7 +348,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = FoxTail.CustomTableView;
+				PRODUCT_BUNDLE_IDENTIFIER = FoxTail.MovieApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -342,7 +358,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9402FDEA270774200090707B /* Build configuration list for PBXProject "CustomTableView" */ = {
+		9402FDEA270774200090707B /* Build configuration list for PBXProject "MovieApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9402FE01270774210090707B /* Debug */,
@@ -351,7 +367,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9402FE03270774210090707B /* Build configuration list for PBXNativeTarget "CustomTableView" */ = {
+		9402FE03270774210090707B /* Build configuration list for PBXNativeTarget "MovieApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9402FE04270774210090707B /* Debug */,
