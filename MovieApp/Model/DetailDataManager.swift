@@ -1,25 +1,20 @@
 import Foundation
 
-protocol DataManagerDelegate {
-    func didParsedData(_ movieData : [Movie])
+protocol DetailManagerDelegate {
+    func didParsedData(_ movieData : MovieDetail?)
     func didFailWithError(error: Error)
 }
 
 
-class DataManager {
+class DetailDataManager {
     
-    let dataUrl = "https://api.themoviedb.org/3/movie/now_playing?api_key=ff492e9a28c2c8dacdadf2b667dbef6e"
+    var delegate : DetailManagerDelegate?
 
-    var delegate : DataManagerDelegate?
-
-    func fetchData(pageNum : Int) {
-        let urlString = "\(dataUrl)&page=\(pageNum)"
-        print(urlString)
+    func fetchData(id : Int) {
+        let urlString = "https://api.themoviedb.org/3/movie/\(id)?api_key=ff492e9a28c2c8dacdadf2b667dbef6e"
         performRequest(with: urlString)
     }
-
     func performRequest(with urlString : String) {
-                
         if let url = URL(string: urlString) {
         
         let session = URLSession(configuration: .default)
@@ -39,15 +34,13 @@ class DataManager {
         }
         
     }
-    func parseJson(_ movieData : Data) -> [Movie]? {
+    
+    func parseJson(_ movieData : Data) -> MovieDetail? {
         let decoder = JSONDecoder()
         do {
-            let decodedData = try decoder.decode(MovieData.self, from: movieData)
-
-            let movie : [Movie] = decodedData.results
-            
+            let decodedData = try decoder.decode(MovieDetail.self, from: movieData)
+            let movie : MovieDetail = decodedData
             return movie
-            
         } catch {
             return nil
         }

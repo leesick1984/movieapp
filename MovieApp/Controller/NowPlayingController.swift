@@ -1,12 +1,15 @@
 import UIKit
 
-class ViewController: UIViewController {
+class NowPlayingController: UIViewController {
 
     @IBOutlet weak var table: UITableView!
 
-    let dataManager = DataManager()
+    let dataManager = ListDataManager()
+    
+    
     var currentPage : Int = 1
     var movieData : [Movie] = []
+    var id : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,13 +19,13 @@ class ViewController: UIViewController {
         table.delegate = self
         // Do any additional setup after loading the view.
     }
-
     
+
 }
 
 //MARK: - Delegates
 
-extension ViewController : DataManagerDelegate {
+extension NowPlayingController : DataManagerDelegate {
     func didParsedData(_ movieData: [Movie]) {
         DispatchQueue.main.async {
             self.movieData.append(contentsOf: movieData)
@@ -36,7 +39,7 @@ extension ViewController : DataManagerDelegate {
 
 //MARK: - Extensions
 
-extension ViewController : UITableViewDataSource, UITableViewDelegate {
+extension NowPlayingController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieData.count
     }
@@ -52,7 +55,7 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
         let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
 
         cell.label.text = movie.title
-                
+        cell.tag = movie.id
         cell.imageURL = URL(string: "https://image.tmdb.org/t/p/w500/\(movie.poster_path)")
         
         return cell
@@ -60,5 +63,20 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let indexPath = tableView.indexPathForSelectedRow
+
+        let currentCell = tableView.cellForRow(at: indexPath!) as! CustomTableViewCell?
+        
+        let displayVC : DetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        
+        displayVC.id = currentCell!.tag
+        
+        self.present(displayVC, animated: true, completion: nil)
+
     }
 }
