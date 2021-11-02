@@ -14,7 +14,12 @@ struct MovieDetail : Decodable {
     let release_date : String
     let revenue : Int
     let runtime : Int
-    let vote_average : Double
+    let vote_average : Float
+    
+    func getFormattedRating() -> Float {
+        return vote_average / 10
+    }
+    
 }
 
 

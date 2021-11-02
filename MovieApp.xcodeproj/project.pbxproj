@@ -122,6 +122,8 @@
 			dependencies = (
 			);
 			name = MovieApp;
+			packageProductDependencies = (
+			);
 			productName = CustomTableView;
 			productReference = 9402FDEF270774200090707B /* MovieApp.app */;
 			productType = "com.apple.product-type.application";
@@ -149,6 +151,8 @@
 				Base,
 			);
 			mainGroup = 9402FDE6270774200090707B;
+			packageReferences = (
+			);
 			productRefGroup = 9402FDF0270774200090707B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
