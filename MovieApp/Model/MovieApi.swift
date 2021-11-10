@@ -5,7 +5,6 @@ protocol DataManagerDelegate {
     func didFailWithError(error: Error)
 }
 
-
 class DataManager {
     
     var delegate : DataManagerDelegate?
@@ -25,7 +24,7 @@ class DataManager {
     }
     
     func getMovieDetail(id: Int) {
-        let urlString = "\(ApiLinks.detailMovie.rawValue)/movie/\(id)?api_key=\(MovieApi.shared.apiKey)"
+        let urlString = "\(ApiLinks.detailMovie.rawValue)/\(id)?api_key=\(MovieApi.shared.apiKey)"
         MovieApi.shared.performAPICall(url: urlString, expectingReturnType: MovieDetail.self, completion: {result in
             switch result {
             case .success(let list):
@@ -46,8 +45,6 @@ class MovieApi {
     let apiKey = "ff492e9a28c2c8dacdadf2b667dbef6e"
     var delegate : DataManagerDelegate?
     
-    
-    
     public func performAPICall<T: Codable>(url: String, expectingReturnType: T.Type, completion: @escaping((Result<T, Error>) -> Void)) {
         
         let task = URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: {data, _,  error in
@@ -67,13 +64,9 @@ class MovieApi {
                 return
             }
             
-            
             completion(.success(result))
         })
         
         task.resume()
-        
     }
-    
-    
 }

@@ -3,7 +3,6 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var moviewImage: UIImageView!
-    
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var movieDesc: UILabel!
     @IBOutlet weak var ratingBar: UIProgressView!
@@ -21,7 +20,7 @@ class DetailViewController: UIViewController {
     
 }
 
-//MARK: - Delegates
+//MARK: - Delegate
 
 extension DetailViewController : DataManagerDelegate {
     func didParsedData<T>(_ movieData: T) where T : Decodable {

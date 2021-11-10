@@ -23,5 +23,5 @@ struct MovieDetail : Codable {
 }
 enum ApiLinks : String {
     case nowPlaying = "https://api.themoviedb.org/3/movie/now_playing"
-    case detailMovie = "https://api.themoviedb.org/3"
+    case detailMovie = "https://api.themoviedb.org/3/movie"
 }
