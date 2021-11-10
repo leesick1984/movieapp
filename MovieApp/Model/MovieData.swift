@@ -1,12 +1,12 @@
-struct MovieData : Decodable {
-    let results : [Movie]
+struct MovieData : Codable {
+    let results : [MovieList]
 }
-struct Movie : Decodable {
+struct MovieList : Codable {
     let id : Int
     let title : String
     let poster_path : String
 }
-struct MovieDetail : Decodable {
+struct MovieDetail : Codable {
     let title : String
     let backdrop_path : String
     let original_title : String
@@ -21,5 +21,7 @@ struct MovieDetail : Decodable {
     }
     
 }
-
-
+enum ApiLinks : String {
+    case nowPlaying = "https://api.themoviedb.org/3/movie/now_playing"
+    case detailMovie = "https://api.themoviedb.org/3"
+}

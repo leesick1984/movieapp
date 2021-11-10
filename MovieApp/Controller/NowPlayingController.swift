@@ -4,31 +4,29 @@ class NowPlayingController: UIViewController {
 
     @IBOutlet weak var table: UITableView!
 
-    let dataManager = ListDataManager()
-    
-    
+    let dataManager = DataManager()
     var currentPage : Int = 1
-    var movieData : [Movie] = []
+    var movieData : [MovieList] = []
     var id : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataManager.fetchData(pageNum: currentPage)
         dataManager.delegate = self
+        dataManager.getMovieList(for: 1)
         table.dataSource = self
         table.delegate = self
-        // Do any additional setup after loading the view.
     }
-    
 
 }
 
 //MARK: - Delegates
 
 extension NowPlayingController : DataManagerDelegate {
-    func didParsedData(_ movieData: [Movie]) {
+    func didParsedData<T>(_ movieData: T) where T : Decodable {
+        //self.movieData.append(contentsOf: movieData as! MovieList)
         DispatchQueue.main.async {
-            self.movieData.append(contentsOf: movieData)
+
+        self.movieData.append(contentsOf: movieData as! [MovieList])
             self.table.reloadData()
         }
     }
@@ -38,7 +36,6 @@ extension NowPlayingController : DataManagerDelegate {
 }
 
 //MARK: - Extensions
-
 extension NowPlayingController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieData.count
@@ -47,7 +44,7 @@ extension NowPlayingController : UITableViewDataSource, UITableViewDelegate {
                 
         if !(indexPath.row + 1 < 20*currentPage) {
             self.currentPage += 1
-            dataManager.fetchData(pageNum: currentPage)
+            dataManager.getMovieList(for: currentPage)
         }
         
         let movie = movieData[indexPath.row]

@@ -10,34 +10,24 @@ class DetailViewController: UIViewController {
 
     var id : Int = 0
     
-    let detailManager = DetailDataManager()
+    let dataManager = DataManager()
     var movieData : MovieDetail? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        detailManager.delegate = self
-        detailManager.fetchData(id: id)
+        dataManager.delegate = self
+        dataManager.getMovieDetail(id: id)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 //MARK: - Delegates
 
-extension DetailViewController : DetailManagerDelegate {
-    func didParsedData(_ movieData: MovieDetail?) {
+extension DetailViewController : DataManagerDelegate {
+    func didParsedData<T>(_ movieData: T) where T : Decodable {
+
         DispatchQueue.main.async {
-            if let safeData = movieData {
+             let safeData = movieData as! MovieDetail
                 self.movieTitle.text = safeData.title
                 self.movieDesc.text = safeData.overview
                 
@@ -51,7 +41,7 @@ extension DetailViewController : DetailManagerDelegate {
                 catch{
                     print(error)
                 }
-            }
+            
         }
     }
     
