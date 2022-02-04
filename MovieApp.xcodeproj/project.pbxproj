@@ -14,6 +14,7 @@
 		9402FDFC270774210090707B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9402FDFB270774210090707B /* Assets.xcassets */; };
 		9402FDFF270774210090707B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9402FDFD270774210090707B /* LaunchScreen.storyboard */; };
 		9402FE09270777A70090707B /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9402FE08270777A70090707B /* CustomTableViewCell.swift */; };
+		9423E68627AAE23900C66651 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9423E68527AAE23900C66651 /* DetailViewModel.swift */; };
 		9439F3A92726F6B200E5656D /* MovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439F3A82726F6B200E5656D /* MovieData.swift */; };
 		94565F0B27450A3100A6F93E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94565F0A27450A3100A6F93E /* DataManager.swift */; };
 		94565F0D274512F200A6F93E /* BestMoviesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94565F0C274512F200A6F93E /* BestMoviesController.swift */; };
@@ -31,6 +32,7 @@
 		9402FDFE270774210090707B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9402FE00270774210090707B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9402FE08270777A70090707B /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		9423E68527AAE23900C66651 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		9439F3A82726F6B200E5656D /* MovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieData.swift; sourceTree = "<group>"; };
 		94565F0A27450A3100A6F93E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		94565F0C274512F200A6F93E /* BestMoviesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestMoviesController.swift; sourceTree = "<group>"; };
@@ -68,8 +70,10 @@
 		9402FDF1270774200090707B /* MovieApp */ = {
 			isa = PBXGroup;
 			children = (
+				94964F3C27AD93DB00B5EEB0 /* NowPlaying */,
+				94964F3B27AD93A300B5EEB0 /* DetailView */,
 				94AE87DD273048E3001D288C /* View */,
-				94AE87DC273048D4001D288C /* Controller */,
+				94AE87DC273048D4001D288C /* BestMovies */,
 				9439F3A32726F48D00E5656D /* Model */,
 				9402FDF2270774200090707B /* AppDelegate.swift */,
 				9402FDF4270774200090707B /* SceneDelegate.swift */,
@@ -89,14 +93,29 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		94AE87DC273048D4001D288C /* Controller */ = {
+		94964F3B27AD93A300B5EEB0 /* DetailView */ = {
 			isa = PBXGroup;
 			children = (
+				9423E68527AAE23900C66651 /* DetailViewModel.swift */,
 				94B76E772730557500D6ACFA /* DetailViewController.swift */,
+			);
+			path = DetailView;
+			sourceTree = "<group>";
+		};
+		94964F3C27AD93DB00B5EEB0 /* NowPlaying */ = {
+			isa = PBXGroup;
+			children = (
 				9402FDF6270774200090707B /* NowPlayingController.swift */,
+			);
+			path = NowPlaying;
+			sourceTree = "<group>";
+		};
+		94AE87DC273048D4001D288C /* BestMovies */ = {
+			isa = PBXGroup;
+			children = (
 				94565F0C274512F200A6F93E /* BestMoviesController.swift */,
 			);
-			path = Controller;
+			path = BestMovies;
 			sourceTree = "<group>";
 		};
 		94AE87DD273048E3001D288C /* View */ = {
@@ -186,6 +205,7 @@
 				9402FDF7270774200090707B /* NowPlayingController.swift in Sources */,
 				94565F0B27450A3100A6F93E /* DataManager.swift in Sources */,
 				9439F3A92726F6B200E5656D /* MovieData.swift in Sources */,
+				9423E68627AAE23900C66651 /* DetailViewModel.swift in Sources */,
 				9402FDF3270774200090707B /* AppDelegate.swift in Sources */,
 				9402FE09270777A70090707B /* CustomTableViewCell.swift in Sources */,
 				9402FDF5270774200090707B /* SceneDelegate.swift in Sources */,

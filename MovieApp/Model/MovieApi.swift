@@ -1,4 +1,5 @@
 import Foundation
+import Combine
 
 class MovieApi {
     
@@ -29,5 +30,11 @@ class MovieApi {
         })
         
         task.resume()
+    }
+    
+    public func requestData(for urlString: URL) -> AnyPublisher<Data, URLError> {
+        URLSession.shared.dataTaskPublisher(for: urlString)
+            .map(\.data)
+            .eraseToAnyPublisher()
     }
 }
